@@ -36,9 +36,9 @@ module.exports = function toReadable (number) {
     } else {
         let numArr = number.toString().split('');
         if (numArr.length == 2) {
-            return dict[Number(numArr[0]) * 10] + (Number(numArr[1]) != 0 ? dict[Number(numArr[1])] : '');
+            return dict[Number(numArr[0]) * 10] + (Number(numArr[1]) != 0 ? ' ' + dict[Number(numArr[1])] : '');
         } else if (numArr.length == 3) {
-            return dict[Number(numArr[0])] + dict[100] + (Number(numArr[1]) != 0 ? dict[Number(numArr[1]) * 10] : '') + (Number(numArr[2]) != 0 ? dict[Number(numArr[2])] : '');
+            return dict[Number(numArr[0])] + ' ' + dict[100] + (Number(numArr[1]) != 0 ? ' ' + dict[Number(numArr[1]) * 10] : '') + (Number(numArr[2]) != 0 ? ' ' + dict[Number(numArr[2])] : '');
         } else {
             return 'Numbers greater than 999 are not supported';
         }
