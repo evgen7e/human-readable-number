@@ -38,7 +38,12 @@ module.exports = function toReadable (number) {
         if (numArr.length == 2) {
             return dict[Number(numArr[0]) * 10] + (Number(numArr[1]) != 0 ? ' ' + dict[Number(numArr[1])] : '');
         } else if (numArr.length == 3) {
-            return dict[Number(numArr[0])] + ' ' + dict[100] + (Number(numArr[1]) != 0 ? ' ' + dict[Number(numArr[1]) * 10] : '') + (Number(numArr[2]) != 0 ? ' ' + dict[Number(numArr[2])] : '');
+            let secNumb = Number(numArr[1] + numArr[2]);
+            if (secNumb > 0 && secNumb < 20) {
+                return dict[Number(numArr[0])] + ' ' + dict[100] + ' ' + dict[secNumb];
+            } else {
+                return dict[Number(numArr[0])] + ' ' + dict[100] + (Number(numArr[1]) != 0 ? ' ' + dict[Number(numArr[1]) * 10] : '') + (Number(numArr[2]) != 0 ? ' ' + dict[Number(numArr[2])] : '');
+            }
         } else {
             return 'Numbers greater than 999 are not supported';
         }
